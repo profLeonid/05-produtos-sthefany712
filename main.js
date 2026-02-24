@@ -1,37 +1,27 @@
 'use strict'
 
 function adicionarProduto() {
-    const lista = document.getElementById('lista')
-    const produto = document.getElementById('produto')
-
-    const span = document.createElement('span')
-    span.textContent = produto.value
-    span.className = 'flex flex-col bg-yellow-100 px-8 py-2'
-
-    lista.appendChild(span)
-    
-}
-
-function adicionarCodigo() {
-    const lista = document.getElementById('lista')
+    const lista = document.getElementById('lista') //id desse objt lista foi criado no html
+    const produto = document.getElementById('produto') //id desse objt produto foi criado no html
     const codigo = document.getElementById('codigo')
+    const quantidade = document.getElementById('quantidade')
 
-    const span = document.createElement('span')
-    span.textContent = codigo.value
-    span.className = 'flex flex-col bg-yellow-100 px-8 py-2'
+    // Chama a funçao para cada input separadamente
+    criarCaixa(codigo.value)
+    criarCaixa(produto.value)
+    criarCaixa(quantidade.value)
 
-    lista.appendChild(span)
-    
-}
+    //Limpa os campos para adicionar novos valores/elementos
+    codigo.value = ''
+    produto.value = '' 
+    quantidade.value = ''
 
-function adicionarQuantidade() {
-    const lista = document.getElementById('lista')
-    const produto = document.getElementById('quantia')
-
-    const span = document.createElement('span')
-    span.textContent = quantidade.value
-    span.className = 'flex flex-col bg-yellow-100 px-8 py-2'
-
-    lista.appendChild(span)
-    
+    // Criei uma função interna para não repetir o mesmo código 3 vezes
+    function criarCaixa (valor) {
+        if (valor === '') return; //Se clicar no adicionar e o campo estiver vazio o retorno é vazio
+        const novoSpan = document.createElement('span') 
+        novoSpan.textContent = valor
+        novoSpan.className = 'bg-yellow-100 px-8 py-2 border border-yellow-200 rounded shadow-sm'
+        lista.appendChild(novoSpan) //lista é o pai e o span é o filho
+    }
 }
