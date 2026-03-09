@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./main.js" defer></script>
+    <script src="./main.js" defer></script> 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Produtos</title>
 </head>
 
 <body class="bg-gray-400 flex flex-col items-center justify-center h-screen gap-4">
     <h1 class="text-2xt">Lista de Produtos</h1>
-    <input type="text" class="border rounded px-8 py-2" id="codigo">
-    <input type="text" class="border rounded px-8 py-2" id="produto">
-    <input type="text" class="border rounded px-8 py-2" id="quantidade">
-    <button class="bg-blue-500 text-white px-4 py-2 rounded" 
-    onclick="adicionarProduto()">
-        Adicionar
-    </button>
-    <div id="lista" class="flex gap-2"></div>
+
+    <input type="text" class="border rounded px-8 py-2" id="codigo" placeholder="Código">
+    <input type="text" class="border rounded px-8 py-2" id="produto" placeholder="Produtos">
+    <input type="text" class="border rounded px-8 py-2" id="quantidade" placeholder="Quantidade">
+
+    <div class=" bg-yellow-400 justify-between w-60 ">
+        <button class="bg-blue-500 text-white px-4 py-2 rounded" 
+        onclick="adicionarProduto()">
+            Adicionar
+        </button>
+        
+        <button class="bg-red-500 text-white px-4 py-2 rounded" 
+        onclick="apagarProduto()">
+            Apagar
+        </button>
+    </div>
+
+    <div id="lista" class="flex gap-2 grid grid-cols-3 " ></div>
+    
 </body>
 
 </html>
